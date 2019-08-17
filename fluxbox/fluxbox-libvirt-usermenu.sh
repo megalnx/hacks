@@ -9,6 +9,7 @@ DOMAINS=$(virsh list --name --all | sort --ignore-case)
 
 echo "[submenu] (Virtual Machines)"
 echo "  [exec]   (virt-manager) {virt-manager}"
+echo "  [exec]   (shutdown all vms) {for vm in $(virsh list --state-running --name); do virsh shutdown $vm ;done}"
 echo "[separator]"
 
 for domain in $DOMAINS; do
